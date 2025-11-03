@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KCRG</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbarcontainer">
+            <div class="logo">KCRG</div>
+            <div class="toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="menu">
+                <li class="navbaritem">
+                    <a href="aboutme.html" class="navbarlinks">About Me</a>
+                </li>
+                <li class="navbaritem">
+                    <a href="family.html" class="navbarlinks">Family Background</a>
+                </li>
+                <li class="navbaritem">
+                    <a href="school.html" class="navbarlinks">Education</a>
+                </li>
+                <li class="navbaritem">
+                    <a href="project.html" class="navbarlinks">Projects</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+  const currentPage = window.location.pathname.split("/").pop();
+  const links = document.querySelectorAll(".navbarlinks");
+
+  links.forEach(link => {
+    if(link.getAttribute("href") === currentPage) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+</body>
+</html>
