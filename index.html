@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KCRG</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"/>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbarcontainer">
+      <div class="logo">KCRG</div>
+      <div class="toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <ul class="menu">
+        <li class="navbaritem"><a href="#home" class="navbarlinks active">Home</a></li>
+        <li class="navbaritem"><a href="#about" class="navbarlinks">About Me</a></li>
+        <li class="navbaritem"><a href="#family" class="navbarlinks">Family Background</a></li>
+        <li class="navbaritem"><a href="#school" class="navbarlinks">Education</a></li>
+        <li class="navbaritem"><a href="#project" class="navbarlinks">Projects</a></li>
+      </ul>
+    </div>
+  </nav>
+
+<section id="home" class="hero">
+  <div class="hero-container">
+    <div class="hero-text">
+      <p class="intro">Hi! I'm <span class="name">Ken Cade R. Gapasin</span></p>
+      <h1>I'm a <span class="autotype"></span></h1>
+
+      <p class="description">A first year student at the University of the Cordilleras.</p>
+
+      <!-- ABOUT CONTENT MOVED HERE -->
+      <p class="about-details">
+        I am a first-year Computer Science student with strong passion in Web Development, Web Design,
+        Research, Science, Game Development, and Arduino Projects. I take risks to build meaningful
+        projects and grow through learning, discipline, time management, and creativity.
+      </p>
+
+      <div class="socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="IMG_4637.JPG" alt="Ken Cade">
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- FAMILY SECTION -->
+  <section id="family" class="family reveal">
+    <div class="family-container">
+      <div class="fam">
+      <h1>Family Background</h1>
+      <p>Write your family background info here...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHOOL SECTION -->
+<section id="school" class="school reveal">
+  <div class="school-container">
+    <div class="educ">
+      <h1 class="time">
+        <i class="fa-solid fa-graduation-cap"></i>
+        Educational Background
+      </h1>
+
+      <div class="timeline">
+        <div class="content-box">
+          <img src="movers.jpg">
+          <div class="date">
+            <i class="fa-solid fa-calendar"></i> 2001 - 2002
+          </div>
+          <h2>Elementary</h2>
+          <p>Movers Academy INC</p>
+        </div>
+
+        <div class="content-box">
+          <img class="tnhs" src="tnhs.jpg">
+          <div class="date">
+            <i class="fa-solid fa-calendar"></i> 2019 - 2023
+          </div>
+          <h2>High School</h2>
+          <p>Tayug National High School 
+            Tayug Pangasinan.
+            Special Science Program
+          </p>
+        </div>
+
+        <div class="content-box">
+          <img src="pu.jpg" alt="Hover Image">
+          <div class="date">
+            <i class="fa-solid fa-calendar"></i> 2024 - 2025
+          </div>
+          <h2>Senior High School</h2>
+          <p>Panpacific University
+            Science Technology Engineering and Mathematics
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- PROJECT SECTION -->
+  <section id="project" class="project reveal">
+    <div class="project-container">
+      <h1>Projects</h1>
+      <p>Showcase your projects here...</p>
+    </div>
+  </section>
+
+  <!-- Typed.js -->
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script>
+    var typed = new Typed(".autotype", {
+      strings: ["Developer", "Designer", "Creator"],
+      typeSpeed: 100,
+      backSpeed: 60,
+      loop: true
+    });
+  </script>
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a2e0cddf3a.js" crossorigin="anonymous"></script>
+
+  <!-- Active Nav on Scroll -->
+  <script>
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".navbarlinks");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= sectionTop - sectionHeight / 3) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href").includes(current)) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
+  <script>
+  // Scroll Reveal Animation
+  const reveals = document.querySelectorAll(".reveal");
+
+  window.addEventListener("scroll", () => {
+    for (let i = 0; i < reveals.length; i++) {
+      const windowHeight = window.innerHeight;
+      const revealTop = reveals[i].getBoundingClientRect().top;
+      const revealPoint = 150; // lower = earlier animation trigger
+
+      if (revealTop < windowHeight - revealPoint) {
+        reveals[i].classList.add("active");
+      } else {
+        reveals[i].classList.remove("active");
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
